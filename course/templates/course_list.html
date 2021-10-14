@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+body{
+    color:black;
+    background-color:gray;
+
+}
+table{
+   background:white;
+   width: 800px;
+   margin: auto;
+   text-align: center;
+   table-layout: fixed;
+}
+table,tr,th,td{
+    color:purple;
+    border: 1px solid rgb(6, 61, 99);
+    width:65px;
+}
+td,th{
+    padding:40px;
+}
+h1{
+    color:purple;
+    padding-left:40%;
+}
+table,td{
+    padding:20px;
+}
+tr:hover{
+    background-color:pink;
+}
+th{
+    background-color:lightblue;
+
+}
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+<h1>Course List</h1>
+ <table style="width:54%">
+
+    <tr>
+    <th>course_name</th>
+    <th>course_code</th>
+    <th>trainer_id</th>
+    <th>course_channel</th>
+    <th>description</th>
+
+    </tr>
+    {%for course in courses%}
+
+    <td>{{course.course_name}}</td>
+    <td>{{course.course_code}}</td>
+     <td>{{course.trainer_id}}</td>
+    <td>{{course.course_channel}}</td>
+    <td>{{course.description}}</td>
+    </tr>
+    {%endfor%}
+
+    </table>
+
+</body>
+</html>

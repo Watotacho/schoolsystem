@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System</title>
+</head>
+<body>
+    <h1>Students List</h1>
+
+
+            <table>
+            <tr>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>age</th>
+            <th>nationality</th>
+             <th>gender</th>
+            <th>image</th>
+             <th>Edit</th>
+            <th>Profile</th>
+            <th>Delete</th>
+            </tr>
+            <tr>
+
+            {% for student in students %}
+            <tr>
+            <td>{{student.first_name}}</td>
+            <td>{{student.last_name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.nationality}}</td>
+            <td>{{student.gender}}</td>
+
+            {% if student.image %}
+            <td> <img src="{{student.image.url}}"></td>
+             {% endif %}
+            {% comment %} <td><img src="{{student.image.url}}" width="45"></td> {% endcomment %}
+            <td> <a href="{% url 'edit_student' id=student.id%}">Edit</a></td>
+            <td> <a href="{% url 'student_profile' id=student.id%}">Profile</a></td>
+            <td> <a href="{% url 'delete_student' id=student.id%}">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+            </table>
+    <style>
+    h1{
+        font-size: 28px;
+      text-align: center;
+        color: purple;
+    }
+table, td, th {
+border: 1px solid (white);
+text-align: left;
+text-size:54%;
+}
+table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+padding: 15px;
+}
+tr:hover{
+    background-color:pink;
+}
+
+  </style>
+</body>
+</html>

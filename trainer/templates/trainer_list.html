@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+body{
+    color:black;
+    background-color:lightblue;
+
+}
+table{
+   background:white;
+   width: 700px;
+   height:200px;
+   margin: auto;
+   text-align: center;
+   table-layout: fixed;
+}
+
+table,tr,th,td{
+    color:purple;
+    border: 1px solid rgb(6, 61, 99);
+    width:65px;
+}
+td,th{
+    padding:40px;
+}
+h1{
+    color:purple;
+    padding-left:40%;
+}
+table,td{
+    padding:20px;
+}
+tr:hover{
+    background-color:pink;
+}
+th{
+    background-color:lightblue;
+}
+
+</style>
+</head>
+<body>
+<h1>Trainers list</h1>
+ <table style="width:54%">
+
+    <tr>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>course_name</th>
+    <th>email</th>
+    <th>city</th>
+    <th>salary</th>
+    <th>company_name</th>
+    <th>image</th>
+
+    <th>Edit</th>
+    <th>Profile</th>
+    <th>Delete</th>
+
+    </tr>
+    <tr>
+    {% for trainer in trainers %}
+
+    <td>{{trainer.first_name}}</td>
+    <td>{{trainer.last_name}}</td>
+    <td>{{trainer.course_name}}</td>
+    <td>{{trainer.email}}</td>
+    <td>{{trainer.city}}</td>
+    <td>{{trainer.salary}}</td>
+    <td>{{trainer.company_name}}</td>
+   
+    {% if trainer.image %}
+    <td> <img src="{{trainer.image.url}}"></td>
+    
+    {% endif %}
+   
+    <td> <a href="{% url 'edit_trainer' id=trainer.id %}">Edit</a></td>
+    <td> <a href="{% url 'trainer_profile' id=trainer.id %}">Profile</a></td>
+    <td> <a href="{% url 'delete_trainer' id=trainer.id %}">Delete</a></td>
+     </tr>
+    {% endfor %}
+
+    </table>
+
+</body>
+</html>
+

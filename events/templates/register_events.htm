@@ -1,0 +1,390 @@
+<!-- {% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   {% block content %}
+   <div class="clearfix">
+    <a class=" btn-info-left" href="{ % url 'cal:calendar' % }?{{ prev_month }}"> Previous Month </a>
+    <a class=" btn-info-right" href="{ % url 'cal:calendar' % }?{{ next_month }}"> Next Month </a>
+    <a class=" btn-info-right" href="{ % url 'cal:calendar' % }?{{ next_month }}"> Add event </a>
+
+
+   </div>
+
+
+   {{ calendar }}
+   {% endblock content %}
+   <style>
+
+.btn-info-left{
+        border: 1px solid purple;
+        padding: 5px;
+        text-decoration: none;
+      }
+      .btn-info-right{
+        border: 1px solid purple;
+        padding: 5px;
+        text-decoration: none;
+      }
+      .btn-info-right:hover{
+          background-color: rgb(228, 68, 228);
+      }
+      .btn-info-left:hover{
+        background-color: rgb(228, 68, 228);
+    }
+   .clearfix {
+      text-align: right;
+      margin-right: 150px;
+      margin-bottom: 10px;
+    }
+   
+    h1{
+        text-align: center;
+        color: purple;
+        font-size: 25px;
+    }
+    .calendar {
+      width:78%;
+      margin: auto;
+      font-size: 13px;
+    }
+    .calendar tr, .calendar td {
+      border: 2px solid plum;
+    }
+    .calendar th {
+      padding: 10px;
+      text-align: center;
+      font-size: 38px;
+      color: purple;
+    }
+    .calendar td {
+      width: 40px;
+      height: 30px;
+      padding: 20px 0px 0px 5px;
+    }
+    .month {
+      font-size: 20px;
+      color: purple;
+    }
+    .date {
+      color: purple;
+    }
+    ul {
+      height: 100%;
+      padding: 0px 5px 0px 20px;
+    }
+    a {
+      color:purple;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    body{
+      padding-bottom: 20px;
+      background-color:white;
+    }
+       </style>
+</body>
+</html>
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% block content %}
+    {{ calendar }}
+    {% endblock content %}
+   
+
+    <style>
+         /* {box-sizing: border-box;} */
+        ul {list-style-type: none;}
+        body {font-family: Verdana, sans-serif;
+            background-color: burlywood;
+        }
+        
+        .month {
+          padding: 70px 25px;
+          width: 100%;
+          background: #1abc9c;
+          text-align: center;
+          font-size: 25px;
+        }
+        
+        .month ul {
+          margin: 0;
+          padding: 0;
+        }
+        
+        .month ul li {
+          color: white;
+          font-size: 20px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+        
+        .month .prev {
+          float: left;
+          padding-top: 10px;
+        }
+        
+        .month .next {
+          float: right;
+          padding-top: 10px;
+        }
+        
+        .weekdays {
+          margin: 0;
+          padding: 10px 0;
+          background-color: #ddd;
+        }
+        
+        .weekdays li {
+          display: inline-block;
+          width: 13.6%;
+          color: #666;
+          text-align: center;
+        }
+        
+        .days {
+          padding: 10px 0;
+          background: #eee;
+          margin: 0;
+        }
+        
+        .days li {
+          list-style-type: none;
+          display: inline-block;
+          width: 13.6%;
+          text-align: center;
+          margin-bottom: 5px;
+          font-size:12px;
+          color: #777;
+        }
+
+
+
+
+
+.calendar {
+  width: 98%;
+  margin: auto;
+  font-size: 13px;
+}
+
+.calendar tr, .calendar td {
+  border: 1px solid black;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+
+
+.date {
+  font-size: 16px;
+}
+
+
+a {
+  color: #17a2b8;
+}
+        </style>
+
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Form</title>
+</head>
+<body>
+
+{% block title %}
+{% endblock %}
+{% block content %}
+<div>
+<form method="post">
+    <h1> Add Event</h1>
+  {% csrf_token %}
+  <table class="form form-table">
+    {{ form.as_p }}
+  </table>
+  <input class="btn btn-success" type="submit" value="Submit" style=" background-color: purple; border-radius: 10px; width: 100%;">
+</form>
+{% endblock %}
+</div>
+<style>
+    select{
+        width: 100%;
+        border-radius: 10px;
+        font-size: 15px;
+        border: 1px solid;
+        padding: 8px 10px;
+        border:purple;
+    }
+h1{
+color:purple;
+text-align: center;
+}
+img{
+margin-left: 130px;
+width: 400px;
+}
+form{
+text-align: center;
+padding-top: 20px;
+color:purple;
+font-size: 20px;
+}
+.btn-success{
+color: rgb(243, 232, 243);
+font-size: 25px;
+font-weight: bold;
+}
+div {
+border-radius: 10px;
+background-color:white;
+/* padding: 20px; */
+margin-left: 300px;
+margin-right: 300px;
+}
+body{
+padding-top: 30px;
+background-color:#eee;
+}
+</style>
+</body>
+</html> -->
+
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Details</title>
+<style>
+    ::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background:white;
+}
+::-webkit-scrollbar-thumb {
+    background: #c20098;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:#c200a2;
+}
+     body{
+        margin:0;
+        font-family:arial,tahoma,sans-serif;
+        font-size:12px;
+        font-weight:normal;
+        direction:ltr;
+        background:#FBD5F1;
+        background-repeat: no-repeat;
+        }
+     .reg{
+        /* margin:10% auto 0 auto; */
+        padding:30px;
+        width:400px;
+        height:auto;
+        overflow:hidden;
+        background:#f3c4e6;
+        border-radius:20px;
+       margin: auto;
+              }
+    .reg:hover{
+        background: rgba(255, 255, 255, 0.659);
+              }
+        button{
+             
+         background-color: #f75dce;
+         width: 25%;  
+          color: rgb(255, 255, 255); 
+          font-size: 15px;  
+          font-weight: bolder;
+          padding: 15px;   
+          margin: 11px 0px;   
+          border: none;   
+          cursor: pointer; 
+          border-radius: 10px;  
+         }
+         button:hover {
+          opacity: 0.7;
+          background: none;
+          border: solid 1px #f75dce;
+          color: black;
+      }  
+        input{
+               width: 100%;
+               outline: none;
+             
+               font-size: 16px;
+               padding: 8px 8px;
+               border-radius: 40px;
+               transition: all 0.3 ease;
+               background-color: white;
+               border: solid 1px #f75dce;
+           }
+           select{
+               -webkit-appearance: none;
+                appearance: none;
+                width: 100%;
+               outline: none;
+              font-size: 15px;
+               padding: 8px 8px;
+               border-radius: 40px;
+               transition: all 0.3 ease;
+               background-color: white;
+               border: solid 1px #f75dce;
+           }
+           hr{
+              border-top: 1px dashed #f75dce;
+           }
+
+    </style>
+</head>
+<body>
+    
+
+    <center><h1>Registration Details</h1></center>
+    
+    <div class="registration">
+        <form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            {{form.as_p}}  
+            <button type="submit" class="sign-up-btn">Submit</button>  
+        </form>
+        
+    </div>   
+</body>
+</html>
