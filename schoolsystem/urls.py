@@ -30,6 +30,7 @@ urlpatterns = [
     path("events/",include("events.urls")),
     path("",include("core.urls")),
     path("api/",include("api.urls")),
+    path('accounts/',include("registration.backends.default.urls"))
 
 ]
 

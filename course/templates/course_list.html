@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,5 +73,81 @@ th{
 
     </table>
 
+</body>
+</html> {% endcomment %}
+
+ {% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System</title>
+</head>
+<body>
+    <h1>Course List</h1>
+     <table style="width:54%">
+
+
+
+           <tr>
+           <th>course_name</th>
+           <th>course_code</th>
+           <th>trainer_id</th>
+           <th>course_channel</th>
+           <th>description</th>
+           </tr>
+           <tr>
+
+           {%for course in courses%}
+
+            <tr>
+            <td>{{course.course_name}}</td>
+            <td>{{course.course_code}}</td>
+            <td>{{course.trainer_id}}</td>
+            <td>{{course.course_channel}}</td>
+            <td>{{course.description}}</td>
+
+            {% comment %} {% endif %} {% endcomment %}
+            </tr>
+            {% endfor %}
+            </table>
+    <style>
+    h1{
+        font-size: 28px;
+      text-align: center;
+        color: purple;
+    }
+table, td, th {
+border: 1px solid (white);
+text-align: left;
+text-size:54%;
+}
+table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+padding: 15px;
+}
+tr:hover{
+    background-color:pink;
+}
+table{
+   background:white;
+   width: 700px;
+   height:200px;
+   margin: auto;
+   text-align: center;
+   table-layout: fixed;
+}
+table,tr,th,td{
+    color:purple;
+    border: 4px solid rgb(6, 61, 99);
+    width:65px;
+}
+
+  </style>
 </body>
 </html>

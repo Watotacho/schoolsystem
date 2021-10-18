@@ -1,3 +1,4 @@
+{% comment %} {% include 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 <style>
 body{
     color:black;
-    background-color:lightblue;
+    background-color:white;
 
 }
 table{
@@ -23,7 +24,7 @@ table{
 table,tr,th,td{
     color:purple;
     border: 1px solid rgb(6, 61, 99);
-    width:65px;
+    width:55px;
 }
 td,th{
     padding:40px;
@@ -39,14 +40,14 @@ tr:hover{
     background-color:pink;
 }
 th{
-    background-color:lightblue;
+    background-color:white;
 }
 
 </style>
 </head>
 <body>
 <h1>Trainers list</h1>
- <table style="width:54%">
+ <table style="width:84%">
 
     <tr>
     <th>first_name</th>
@@ -88,5 +89,94 @@ th{
     </table>
 
 </body>
-</html>
+</html> {% endcomment %}
 
+ {% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School System</title>
+</head>
+<body>
+    <h1>Trainer List</h1>
+
+           <table style="width:84%">
+
+
+
+            <tr>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>course_name</th>
+            <th>email</th>
+            <th>city</th>
+            <th>salary</th>
+            <th>company_name</th>
+            <th>image</th>
+
+           <th>Edit</th>
+           <th>Profile</th>
+           <th>Delete</th>
+           </tr>
+           <tr>
+
+            {% for trainer in trainers %}
+            <tr>
+            <td>{{trainer.first_name}}</td>
+            <td>{{trainer.last_name}}</td>
+            <td>{{trainer.age}}</td>
+            <td>{{trainer.nationality}}</td>
+            <td>{{trainer.gender}}</td>
+
+            {% if trainer.image %}
+            <td> <img src="{{student.image.url}}"></td>
+            {% endif %}
+            <td><img src="{{trainer.image.url}}" width="45"></td>
+            <td> <a href="{% url 'edit_trainer' id=trainer.id%}">Edit</a></td>
+            <td> <a href="{% url 'trainer_profile' id=trainer.id%}">Profile</a></td>
+            <td> <a href="{% url 'delete_trainer' id=trainer.id%}">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+            </table>
+    <style>
+    h1{
+        font-size: 28px;
+      text-align: center;
+        color: purple;
+    }
+table, td, th {
+border: 1px solid (white);
+text-align: left;
+text-size:54%;
+}
+table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+padding: 15px;
+}
+tr:hover{
+    background-color:pink;
+}
+table{
+   background:white;
+   width: 700px;
+   height:200px;
+   margin: auto;
+   text-align: center;
+   table-layout: fixed;
+}
+table,tr,th,td{
+    color:purple;
+    border: 4px solid rgb(6, 61, 99);
+    width:65px;
+}
+
+  </style>
+</body>
+</html>
