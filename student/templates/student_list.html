@@ -36,7 +36,7 @@
             <td>{{student.gender}}</td>
 
             {% if student.image %}
-            {% comment %} <td> <img src="{{student.image.url}}"></td> {% endcomment %}
+         
              {% endif %}
             <td><img src="{{student.image.url}}" width="45"></td>
             <td> <a href="{% url 'edit_student' id=student.id%}">Edit</a></td>
@@ -49,8 +49,9 @@
     <style>
     h1{
         font-size: 28px;
-      text-align: center;
+        text-align: center;
         color: purple;
+
     }
 table, td, th {
 border: 1px solid (white);
@@ -78,10 +79,11 @@ table{
 table,tr,th,td{
     color:purple;
     border: 4px solid rgb(6, 61, 99);
-    width:65px;
+    width:95px;
 }
+background-color:gray;
 
-  </style>
+</style>
 </body>
 </html>
 

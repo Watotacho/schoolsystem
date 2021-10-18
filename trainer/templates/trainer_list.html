@@ -110,6 +110,7 @@ th{
             <tr>
             <th>first_name</th>
             <th>last_name</th>
+        
             <th>course_name</th>
             <th>email</th>
             <th>city</th>
@@ -127,14 +128,20 @@ th{
             <tr>
             <td>{{trainer.first_name}}</td>
             <td>{{trainer.last_name}}</td>
-            <td>{{trainer.age}}</td>
-            <td>{{trainer.nationality}}</td>
-            <td>{{trainer.gender}}</td>
+
+            <td>{{trainer.course_name}}</td>
+            <td>{{trainer.email}}</td>
+            <td>{{trainer.city}}</td>
+            <td>{{trainer.salary}}</td>
+            <td>{{trainer.company_name}}</td>
+
+
 
             {% if trainer.image %}
-            <td> <img src="{{student.image.url}}"></td>
+
             {% endif %}
             <td><img src="{{trainer.image.url}}" width="45"></td>
+
             <td> <a href="{% url 'edit_trainer' id=trainer.id%}">Edit</a></td>
             <td> <a href="{% url 'trainer_profile' id=trainer.id%}">Profile</a></td>
             <td> <a href="{% url 'delete_trainer' id=trainer.id%}">Delete</a></td>
@@ -165,7 +172,7 @@ tr:hover{
 }
 table{
    background:white;
-   width: 700px;
+   width: 800px;
    height:200px;
    margin: auto;
    text-align: center;
@@ -174,7 +181,7 @@ table{
 table,tr,th,td{
     color:purple;
     border: 4px solid rgb(6, 61, 99);
-    width:65px;
+    width:95px;
 }
 
   </style>
